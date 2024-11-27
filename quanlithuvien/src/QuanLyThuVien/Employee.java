@@ -41,25 +41,25 @@ public class Employee extends Person{
 	                System.out.println("Dinh dang ngay khong hop le! Vui long nhap lai.");
 	            }
 	        }
-	        System.out.print("Nhap vi tri cua nhan vien: ");
+	        System.out.print("Nhap chuc vu cua nhan vien: ");
 	        this.setrole(scanner.nextLine());
 	        System.out.print("Nhap ca lam cua nhan vien: ");
 	        this.setshift(scanner.nextLine());
 	    }
 		public void xuat() {
-			System.out.printf("id: %s\n", this.getid());
-			System.out.println("name: " + this.getname());
-			System.out.println("address: " + this.getaddress());
-			System.out.println("gender: " + this.getgender());
+			System.out.print("ID: " + this.getid() + "; ");
+			System.out.print("Ten:; " + this.getname() + "; ");
+			System.out.print("Dia chi: " + this.getaddress() + "; ");
+			System.out.print("Gioi tinh: " + this.getgender() + "; ");
 	        if (getdob() != null) {
 	            SimpleDateFormat sdfOutput = new SimpleDateFormat("dd/MM/yyyy");
 	            String formattedDate = sdfOutput.format(getdob());
-	            System.out.println("Ngày sinh của bạn: " + formattedDate);
+	            System.out.print("Ngay sinh: " + formattedDate + "; ");
 	        } else {
-	            System.out.println("date of birth: khong xac dinh do loi nhap lieu");
+	            System.out.print("Ngay sinh khong xac dinh do loi nhap lieu!");
 	        }
-			System.out.println("role: " + this.getrole());	
-			System.out.println("shift: " + this.getshift());	
+			System.out.print("Chuc vu: " + this.getrole() + "; ");	
+			System.out.println("Ca lam: " + this.getshift());	
 		}
 
 	
