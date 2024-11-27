@@ -66,7 +66,7 @@ public class Main {
             sc.nextLine();
             switch (subChoice) {
                 case 1:
-                    System.out.print("Nhap loai nhan su (1. Nhan vien, 2. Doc gia, 3. Lua chon khac): ");
+                    System.out.print("Nhap loai nhan su (1. Nhan vien, 2. Doc gia, 3. Quay lai): ");
                     int typeChoice = sc.nextInt();
                     sc.nextLine(); 
                     System.out.println("---------------------------------------------------------------------");
@@ -110,9 +110,7 @@ public class Main {
                         
                         
                     } else {
-                        Person p = new Person();
-                        p.nhap();
-                        dsnd.them(p);
+                        break;
                     }
                     break;
 
