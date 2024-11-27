@@ -23,20 +23,19 @@ public class danhSachNhanSu {
 	}
 	
 	public void xoa(String id) {
-		boolean found = false;
-		for(Person p : listofperson) {
-			if (p.getid().equals(id)) {
-				found = true;
-				listofperson.remove(p);
-				System.out.println("Da xoa thanh cong ID " + id);
-				break;
-			}
-		}
-		if (!found) {
-			System.out.printf("Khong tim thay id %s\n", id);
-		}
-	}
-	
+	    boolean found = false;
+	    for (int i = 0; i < listofperson.size(); i++) {
+	        if (listofperson.get(i).getid().equals(id)) {
+	            found = true;
+	            listofperson.remove(i);
+	            System.out.println("Da xoa thanh cong ID " + id);
+	            break;
+	        }
+	    }
+	    if (!found) {
+	        System.out.printf("Khong tim thay id %s\n", id);
+	    }
+	}	
 	public void sua(String id) {
         boolean found = false;
         for (Person p : listofperson) {
@@ -66,12 +65,12 @@ public class danhSachNhanSu {
 		return null;
 	}
 	
-	public void searchbyname(String key) {
+	public Person searchbyname(String key) {
 	    boolean found = false;
 	    for(Person p : listofperson) {
 	        if(p.getname().toLowerCase().contains(key.toLowerCase())) {
 	            found = true;
-	            p.xuat(); 
+	            return p;
 	        }
 	    }
 	    if (found) {
@@ -79,6 +78,7 @@ public class danhSachNhanSu {
 	    } else {
 	        System.out.printf("Khong tim thay nguoi voi ten %s\n", key);
 	    }
+		return null;
 	}
 	
 	
