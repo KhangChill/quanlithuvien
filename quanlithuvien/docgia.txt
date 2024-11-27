@@ -1,2 +1,0 @@
-Reader; ID: NG002; Ten: Tran Thi B; Dia chi: 456 Le Loi; Gioi tinh: Nu; Ngay sinh: 22/08/1990; Email: tranthib@example.com; So dien thoai: 0901234567
-Reader; ID: NG004; Ten: Hoang Minh D; Dia chi: 101 Nguyen Hue; Gioi tinh: Nam; Ngay sinh: 05/06/1995; Email: hoangminhd@example.com; So dien thoai: 0912345678
