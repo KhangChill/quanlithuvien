@@ -1,2 +1,0 @@
-Employee; ID: NG001; Ten: Nguyen Van A; Dia chi: 123 Nguyen Trai; Gioi tinh: Nam; Ngay sinh: 15/04/1985; Vi tri: Giam doc; Ca lam: Ca sang
-Employee; ID: NG003; Ten: Le Van C; Dia chi: 789 Tran Hung Dao; Gioi tinh: Nam; Ngay sinh: 10/10/1988; Vi tri: Ke toan; Ca lam: Ca chieu
