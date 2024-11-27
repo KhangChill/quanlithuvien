@@ -32,7 +32,7 @@ public class Employee extends Person{
 	        sdf.setLenient(false); 
 	        boolean validDate = false;
 	        while (!validDate) {
-	            System.out.print("Nhap ngay sinh cua nhan su (dd/MM/yyyy): ");
+	            System.out.print("Nhap ngay sinh cua nhan vien (dd/MM/yyyy): ");
 	            String input = scanner.nextLine();
 	            try {
 	                setdob(sdf.parse(input));
