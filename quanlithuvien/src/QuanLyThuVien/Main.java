@@ -57,9 +57,8 @@ public class Main {
             System.out.println("5. Muon tai lieu");
             System.out.println("6. Hien thi danh sach nhan su");
             System.out.println("7. Hien thi tai lieu da muon");
-            System.out.println("8. Doc danh sach tu file txt");
-            System.out.println("9. Ghi danh sach tu file txt");
-            System.out.println("10. Quay lai menu chinh");
+            System.out.println("8. Ghi danh sach tu file txt");
+            System.out.println("9. Quay lai menu chinh");
             System.out.println("---------------------------------------------------------------------");
             
             try {
@@ -206,8 +205,8 @@ public class Main {
                         System.out.println("Da xay ra loi khi tim kiem: " + e.getMessage());
                     }
                     break;
-                
-                case 5:/* PHUONG THUC MUON
+                /*
+                case 5: PHUONG THUC MUON
                 	System.out.print("Nhap ID nguoi muon: ");
                     String IDmuon = sc.nextLine();
                     Person reader = dsnd.searchbyid(IDmuon);
@@ -232,8 +231,8 @@ public class Main {
                 case 6:
                     dsnd.xuatDanhSachNhanSu();
                     break;
-                
-                case 7:/* PHUONG THUC IN RA DANH SACH TAI LIEU CUA NGUOI MUON
+                /*
+                case 7: PHUONG THUC IN RA DANH SACH TAI LIEU CUA NGUOI MUON
                     System.out.print("Nhap ID nguoi muon: ");
                     String ID = sc.nextLine();
                     Person personToCheck = dsnd.searchbyid(ID);
@@ -247,21 +246,14 @@ public class Main {
                     break;*/
                     
                 case 8:
-                    try {
-                        dsnd.docTuFile("input_NS.txt");
-                    } catch (IOException e) {
-                        System.out.println("Loi khi doc file: " + e.getMessage());
-                    }
+    				dsnd.ghiVaoFile("output_NS.txt"); // thay output_nhanvien.txt và output_docgia.txt bằng đường dẫn dến file để ghi thông tin nhân viên và đọc giả
                     break;
                 case 9:
-    				dsnd.ghiVaoFile("output_NV.txt", "output_DG.txt"); // thay output_nhanvien.txt và output_docgia.txt bằng đường dẫn dến file để ghi thông tin nhân viên và đọc giả
-                    break;
-                case 10:
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while (subChoice != 10);
+        } while (subChoice != 9);
 }
 
 
