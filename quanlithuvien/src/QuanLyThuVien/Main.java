@@ -61,14 +61,41 @@ public class Main {
             System.out.println("9. Ghi danh sach tu file txt");
             System.out.println("10. Quay lai menu chinh");
             System.out.println("---------------------------------------------------------------------");
-            System.out.print("Lua chon cua ban la: ");
-            subChoice = sc.nextInt();
-            sc.nextLine();
+            
+            try {
+                System.out.print("Lua chon cua ban: ");
+                if (sc.hasNextInt()) { 
+                	subChoice = sc.nextInt();
+                	sc.nextLine();
+                } else {
+                    System.out.println("Lua chon khong hop le, vui long nhap so!");
+                    sc.next(); 
+                    continue; 
+                }
+            } catch (Exception e) {
+                System.out.println("Da xay ra loi: " + e.getMessage());
+                sc.next(); 
+            }                   
+            
             switch (subChoice) {
                 case 1:
-                    System.out.print("Nhap loai nhan su (1. Nhan vien, 2. Doc gia, 3. Quay lai): ");
-                    int typeChoice = sc.nextInt();
-                    sc.nextLine(); 
+                    System.out.println("Nhap loai nhan su (1. Nhan vien, 2. Doc gia, 3. Quay lai): ");
+                    int typeChoice = 0;
+                    try {
+                        System.out.print("Lua chon cua ban: ");
+                        if (sc.hasNextInt()) { 
+                        	typeChoice = sc.nextInt();
+                            sc.nextLine(); 
+                        } else {
+                            System.out.println("Lua chon khong hop le, vui long nhap so!");
+                            sc.next(); 
+                            continue; 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Da xay ra loi: " + e.getMessage());
+                        sc.next(); 
+                    }
+
                     System.out.println("---------------------------------------------------------------------");
 
                     if (typeChoice == 1) {
@@ -110,6 +137,7 @@ public class Main {
                         
                         
                     } else {
+                    	System.out.println("Lua chon khong hop le!");
                         break;
                     }
                     break;
@@ -130,27 +158,56 @@ public class Main {
                     System.out.println("1. Tim theo ten");
                     System.out.println("2. Tim theo ID");
                     System.out.println("---------------------------------------------------------------------");
-                    System.out.print("Lua chon cua ban: ");
-                    int searchChoice = sc.nextInt();
-                    sc.nextLine();
+                    int searchChoice = 0;
+                    try {
+                        System.out.print("Lua chon cua ban: ");
+                        if (sc.hasNextInt()) { 
+                        	searchChoice = sc.nextInt();
+                        	sc.nextLine();
+                        } else {
+                            System.out.println("Lua chon khong hop le, vui long nhap so!");
+                            sc.next(); 
+                            continue; 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Da xay ra loi: " + e.getMessage());
+                        sc.next(); 
+                    }                   
 
-                    switch (searchChoice) {
-                        case 1:
-                            System.out.print("Nhap ten nhan su: ");
-                            String searchName = sc.nextLine();
-                            dsnd.searchbyname(searchName);
-                            break;
-                        case 2:
-                            System.out.print("Nhap ID nhan su: ");
-                            String searchId = sc.nextLine();
-                            dsnd.searchbyid(searchId);
-                            break;
-                        default:
-                            System.out.println("Lua chon khong hop le!");
+                    try {
+                        switch (searchChoice) {
+                            case 1:
+                            	 System.out.print("Nhap ten nhan su: ");
+                                 String searchName = sc.nextLine();                                 
+                                 Person personByName = dsnd.searchbyname(searchName);
+                                 if (personByName != null) {
+                                     System.out.println("Tim thay nhan su voi ID: " + searchName);
+                                	 personByName.xuat();
+                                 } else {
+                                     System.out.println("Khong tim thay nhan su voi ID: " + searchName);
+                                 }
+                                 break;
+
+                            case 2:
+                                System.out.print("Nhap ID nhan su: ");
+                                String searchId = sc.nextLine();
+                                Person personById = dsnd.searchbyid(searchId);
+                                if (personById != null) {
+                                    personById.xuat();
+                                } else {
+                                    System.out.println("Khong tim thay nhan su voi ID: " + searchId);
+                                }
+                                break;
+
+                            default:
+                                System.out.println("Lua chon khong hop le! Vui long nhap so tuong ung trong menu.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Da xay ra loi khi tim kiem: " + e.getMessage());
                     }
                     break;
                 
-                case 5:/*
+                case 5:/* PHUONG THUC MUON
                 	System.out.print("Nhap ID nguoi muon: ");
                     String IDmuon = sc.nextLine();
                     Person reader = dsnd.searchbyid(IDmuon);
@@ -176,7 +233,7 @@ public class Main {
                     dsnd.xuatDanhSachNhanSu();
                     break;
                 
-                case 7:
+                case 7:/* PHUONG THUC IN RA DANH SACH TAI LIEU CUA NGUOI MUON
                     System.out.print("Nhap ID nguoi muon: ");
                     String ID = sc.nextLine();
                     Person personToCheck = dsnd.searchbyid(ID);
@@ -187,7 +244,7 @@ public class Main {
                     } else {
                         System.out.println("Khong tim thay nguoi voi ID da nhap.");
                     }
-                    break;
+                    break;*/
                     
                 case 8:
                     try {
@@ -354,9 +411,3 @@ public class Main {
         } while (subChoice != 8);
     }
 }
-
-
-
-
-
-
