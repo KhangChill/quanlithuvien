@@ -11,8 +11,6 @@ public class Reader extends Person{
 	// constructor
 	public Reader() {
 		super();
-		this.email = null;
-		this.phone = null;
 	}
 	public Reader(String id,String name, String address, String gender, String dob, String email, String phone) {
 		super(id, name, address, gender, dob);
@@ -41,25 +39,19 @@ public class Reader extends Person{
                 System.out.println("Dinh dang ngay khong hop le! Vui long nhap lai.");
             }
         }
-        System.out.print("Nhap email cua doc gia: ");
-        this.setemail(scanner.nextLine());
-        System.out.print("Nhap so dien thoai cua doc gia: ");
-        this.setphone(scanner.nextLine());
     }
 	public void xuat() {
-		System.out.printf("id: %s\n", this.getid());
-		System.out.println("name: " + this.getname());
-		System.out.println("address: " + this.getaddress());
-		System.out.println("gender: " + this.getgender());
+		System.out.print("ID: " + this.getid() + "; ");
+		System.out.print("Ten: " + this.getname() + "; ");
+		System.out.print("Dia chi: " + this.getaddress() + "; ");
+		System.out.print("Gioi tinh: " + this.getgender() + "; ");
         if (getdob() != null) {
             SimpleDateFormat sdfOutput = new SimpleDateFormat("dd/MM/yyyy");
             String formattedDate = sdfOutput.format(getdob());
-            System.out.println("Ngày sinh của bạn: " + formattedDate);
+            System.out.println("Ngay sinh: " + formattedDate);
         } else {
-            System.out.println("date of birth: khong xac dinh do loi nhap lieu");
+            System.out.println("Ngay sinh khong xac dinh do loi nhap lieu!");
         }
-		System.out.println("email: " + this.getemail());	
-		System.out.println("phone: " + this.getphone());	
 	}
 
 	
@@ -79,12 +71,6 @@ public class Reader extends Person{
 	public Date getdob() {
 		return super.getdob();
 	}
-	public String getemail() {
-		return this.email;
-	}
-	public String getphone() {
-		return this.phone;
-	}
 	public void setname(String name) {
 		super.setname(name);
 	}
@@ -97,10 +83,4 @@ public class Reader extends Person{
 	public void setdob(Date dob) {
 		super.setdob(dob);
 	}
-	public void setemail(String email) {
-		this.email = email;
-	}
-	public void setphone(String phone) {
-		this.phone = phone;
-	}	
 }
