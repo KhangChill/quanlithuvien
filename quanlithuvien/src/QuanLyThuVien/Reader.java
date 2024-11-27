@@ -22,17 +22,17 @@ public class Reader extends Person{
 	
 	// implemented methods
 	public void nhap() {
-        System.out.print("Nhap ten nhan vien: ");
+        System.out.print("Nhap ten doc gia: ");
         this.setname(scanner.nextLine());
-        System.out.print("Nhap dia chi cua nhan vien: ");
+        System.out.print("Nhap dia chi cua doc gia: ");
         this.setaddress(scanner.nextLine());
-        System.out.print("Nhap gioi tinh cua nhan vien: ");
+        System.out.print("Nhap gioi tinh cua doc gia: ");
         this.setgender(scanner.nextLine());
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false); 
         boolean validDate = false;
         while (!validDate) {
-            System.out.print("Nhap ngay sinh cua nhan su (dd/MM/yyyy): ");
+            System.out.print("Nhap ngay sinh cua doc gia (dd/MM/yyyy): ");
             String input = scanner.nextLine();
             try {
                 setdob(sdf.parse(input));
@@ -41,9 +41,9 @@ public class Reader extends Person{
                 System.out.println("Dinh dang ngay khong hop le! Vui long nhap lai.");
             }
         }
-        System.out.print("Nhap email cua nhan vien: ");
+        System.out.print("Nhap email cua doc gia: ");
         this.setemail(scanner.nextLine());
-        System.out.print("Nhap so dien thoai cua nhan vien: ");
+        System.out.print("Nhap so dien thoai cua doc gia: ");
         this.setphone(scanner.nextLine());
     }
 	public void xuat() {
