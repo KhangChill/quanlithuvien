@@ -30,7 +30,7 @@ public class Person implements NhapXuat {
 	        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			this.dob = sdf.parse(dob);
 		} catch (ParseException e) {
-            System.out.println("\nĐịnh dạng ngày không hợp lệ!");
+            System.out.println("\nĐinh dang ngay khong hop le!");
 		}
 	}
 	
@@ -57,16 +57,16 @@ public class Person implements NhapXuat {
         }
     }
 	public void xuat() {
-		System.out.printf("id: %s\n", this.id);
-		System.out.println("name: " + this.name);
-		System.out.println("address: " + this.address);
-		System.out.print("gender: " + this.gender);
+		System.out.printf("ID: %s\n", this.id);
+		System.out.println("Ten: " + this.name);
+		System.out.println("Dia chi: " + this.address);
+		System.out.print("Gioi tinh: " + this.gender);
         if (dob != null) {
             SimpleDateFormat sdfOutput = new SimpleDateFormat("dd/MM/yyyy");
             String formattedDate = sdfOutput.format(dob);
-            System.out.println("Ngày sinh của bạn: " + formattedDate);
+            System.out.println("Ngay sinh: " + formattedDate);
         } else {
-            System.out.println("date of birth: khong xac dinh do loi nhap lieu");
+            System.out.println("Ngay sinh khong xac dinh do loi nhap lieu");
         }
 	}
 	
