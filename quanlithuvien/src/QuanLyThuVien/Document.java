@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Document implements NhapXuat {
+public abstract class Document implements NhapXuat {
     private String id;
     private static int dem = 0;
     private String name;
