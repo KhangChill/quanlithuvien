@@ -104,7 +104,6 @@ public class Person implements NhapXuat {
 	
 	public void muonTaiLieu(Document document) {
         danhSachTaiLieuMuon.add(document);
-        System.out.println("Da muon tai lieu: " + document.getName());
     }
 
     public void hienThiDanhSachMuon() {
@@ -120,7 +119,7 @@ public class Person implements NhapXuat {
     }
 
     public ArrayList<Document> getDanhSachTaiLieuMuon() {
-        return danhSachTaiLieuMuon;
+        return this.danhSachTaiLieuMuon;
     }
 	
 }
