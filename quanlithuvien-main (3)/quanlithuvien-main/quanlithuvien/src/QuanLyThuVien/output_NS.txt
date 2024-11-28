@@ -1,0 +1,2 @@
+Employee; ID: NV001; Ten: Vo Viet Tuong; Dia chi: Khanh Hoa; Gioi tinh: Nam; Ngay sinh: 28/07/2005; Vi tri: Thu Ngan; Ca lam: Sang
+Reader; ID: DG001; Ten: Nguyen Hoang Long; Dia chi: Ho Chi Minh; Gioi tinh: Nam; Ngay sinh: 02/04/2005
