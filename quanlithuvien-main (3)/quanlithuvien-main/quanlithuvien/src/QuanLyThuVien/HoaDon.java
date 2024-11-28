@@ -2,7 +2,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-
 public class HoaDon implements Serializable {
     private String maHoaDon;
     private String tenNhanVien;
@@ -13,11 +12,12 @@ public class HoaDon implements Serializable {
     private int soLuong;
     private Date ngayMuon;
     private Date ngayTra;
+    private int TienDatCoc;
 
     // Constructor
     public HoaDon(String maHoaDon, String tenNhanVien, String maNhanVien, 
                   String tenDocGia, String maDocGia, String taiLieuMuon, 
-                  int soLuong, Date ngayMuon, Date ngayTra) {
+                  int soLuong, Date ngayMuon, Date ngayTra, int TienDatCoc) {
         this.maHoaDon = maHoaDon;
         this.tenNhanVien = tenNhanVien;
         this.maNhanVien = maNhanVien;
@@ -27,6 +27,7 @@ public class HoaDon implements Serializable {
         this.soLuong = soLuong;
         this.ngayMuon = ngayMuon;
         this.ngayTra = ngayTra;
+        this.TienDatCoc = TienDatCoc;
     }
     
    // Getter và Setter cho các thuộc tính
@@ -102,6 +103,14 @@ public void setNgayTra(Date ngayTra) {
     this.ngayTra = ngayTra;
 }
 
+public int getTienDatCoc(){
+    return TienDatCoc = soLuong * 100000;
+}
+
+public void setTienDatCoc(int TienDatCoc){
+    this.TienDatCoc = TienDatCoc;
+}
+
 
     @Override
     public String toString() {
@@ -112,6 +121,7 @@ public void setNgayTra(Date ngayTra) {
                "Tai lieu muon: " + taiLieuMuon + "\n" +
                "So luong: " + soLuong + "\n" +
                "Ngay muon: " + ngayMuon + "\n" +
-               "Ngay tra: " + ngayTra + "\n";
+               "Ngay tra: " + ngayTra + "\n" +
+               "Tổng số tiền trả: " + TienDatCoc + "VND" + "\n";
     }
 }
