@@ -1,0 +1,6 @@
+Book; ID: TL001; Ten: He Dieu Hanh; Ma so ke: jh475; Nam xuat ban: 2023; So luong: 2; Tac gia: Quoc; The loai: cong nghe; Tinh trang: moi; Ma sach: Gh458; Ngon ngu:  Viet Nam
+Dia; ID: TL002; Ten: Conan; Ma so ke: jh765; Nam xuat ban: 2002; So luong: 20; Tac gia: an danh; The loai: hoat hinh; Tinh trang: moi; Ma so Dia: gh758; Dung luong: 5.0; Loai dia: CD
+Magazine; ID: TL003; Ten: Mon ngon moi ngay; Ma so ke: ki145; Nam xuat ban: 2002; So luong: 3; Tac gia: khong biet; The loai: am thuc; Tinh trang: moi; So phat hanh: 458762; Thang phat hanh: 2; Ngon ngu: Viet Nam 
+Dia; ID: TL004; Ten: one piece; Ma so ke: ko147; Nam xuat ban: 2012; So luong: 56; Tac gia: an danh; The loai: hoat hinh; Tinh trang: moi; Ma so Dia: kg475; Dung luong: 6.0; Loai dia: DVD
+Book; ID: TL005; Ten: OOP; Ma so ke: ju145; Nam xuat ban: 2015; So luong: 1; Tac gia: Loan; The loai: IT; Tinh trang: moi; Ma sach: ki456; Ngon ngu:  Viet Nam
+Magazine; ID: TL006; Ten: chuyen di moi ngay; Ma so ke: lj145; Nam xuat ban: 2015; So luong: 2; Tac gia: an danh; The loai: phieu luu; Tinh trang: moi; So phat hanh: 475891; Thang phat hanh: 2; Ngon ngu: Viet Nam

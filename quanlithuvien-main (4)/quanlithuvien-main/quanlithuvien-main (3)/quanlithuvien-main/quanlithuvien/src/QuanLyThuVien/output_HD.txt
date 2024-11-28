@@ -1,0 +1,2 @@
+{"maHoaDon": "001", "tenDocGia": "Nguyen Hoang Long", "maDocGia": "DG001", "maTaiLieu": "TL001", "tienCoc": 100.00, "ngayMuon": "29/11/2024", "ngayTra": "12/12/2024"}
+{"maHoaDon": "002", "tenDocGia": "Hoang Vu Minh Man", "maDocGia": "DG002", "maTaiLieu": "TL003", "tienCoc": 100.00, "ngayMuon": "29/11/2024", "ngayTra": "31/12/2024"}
