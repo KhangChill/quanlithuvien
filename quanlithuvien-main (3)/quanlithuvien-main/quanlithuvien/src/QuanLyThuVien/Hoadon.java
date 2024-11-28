@@ -106,12 +106,12 @@ public void setNgayTra(Date ngayTra) {
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");  // Định dạng ngày tháng
-        return "Mã Hóa Đơn: " + maHoaDon + "\n" +
-               "Tên Nhân Viên: " + tenNhanVien + " - Mã Nhân Viên: " + maNhanVien + "\n" +
-               "Tên Độc Giả: " + tenDocGia + " - Mã Độc Giả: " + maDocGia + "\n" +
-               "Tài Liệu Mượn: " + taiLieuMuon + "\n" +
-               "Số Lượng: " + soLuong + "\n" +
-               "Ngày Mượn: " + ngayMuon + "\n" +
-               "Ngày Trả: " + ngayTra + "\n";
+        return "Ma hoa don: " + maHoaDon + "\n" +
+               "Ten nhan vien: " + tenNhanVien + " - Ma nhan vien: " + maNhanVien + "\n" +
+               "Ten doc gia: " + tenDocGia + " - Ma doc gia: " + maDocGia + "\n" +
+               "Tai lieu muon: " + taiLieuMuon + "\n" +
+               "So luong: " + soLuong + "\n" +
+               "Ngay muon: " + ngayMuon + "\n" +
+               "Ngay tra: " + ngayTra + "\n";
     }
 }
