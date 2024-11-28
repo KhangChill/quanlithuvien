@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Person implements NhapXuat {
+public abstract class Person implements NhapXuat {
 	private String id;
 	private String name;
 	private String address;
