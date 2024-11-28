@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    private static danhSachNhanSu dsnd = new danhSachNhanSu();
+    private static danhSachNhanSu dsns = new danhSachNhanSu();
     private static danhSachTaiLieu dstl = new danhSachTaiLieu(); 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -102,7 +102,7 @@ public class Main {
                         System.out.print("Nhap ID nhan vien: ");
                         String ID = sc.nextLine();
                         boolean check = true;
-                        for (Person p : dsnd.getlistofperson()) {
+                        for (Person p : dsns.getlistofperson()) {
                         	if (p.getid().equals(ID)) {
                         		check = false;
                         		System.out.println("ID nay da duoc dung");
@@ -112,7 +112,7 @@ public class Main {
                         if (check == true) {
                             nhanVien.setid(ID);
                             nhanVien.nhap();
-                            dsnd.them(nhanVien);
+                            dsns.them(nhanVien);
 
                         }
                     } else if(typeChoice == 2){
@@ -121,7 +121,7 @@ public class Main {
                         System.out.print("Nhap ID doc gia: ");
                         String ID = sc.nextLine();
                         boolean check = true;
-                        for (Person p : dsnd.getlistofperson()) {
+                        for (Person p : dsns.getlistofperson()) {
                         	if (p.getid().equals(ID)) {
                         		check = false;
                         		System.out.println("ID nay da duoc dung");
@@ -131,7 +131,7 @@ public class Main {
                         if (check == true) {
                         	docGia.setid(ID);
                         	docGia.nhap();
-                            dsnd.them(docGia);
+                            dsns.them(docGia);
                         }
                         
                         
@@ -143,12 +143,12 @@ public class Main {
 
                 case 2:
                     System.out.print("Nhap ID nhan su can xoa: ");
-                    dsnd.xoa(sc.nextLine());
+                    dsns.xoa(sc.nextLine());
                     break;
 
                 case 3:
                     System.out.print("Nhap ID nhan su can sua: ");
-                    dsnd.sua(sc.nextLine());
+                    dsns.sua(sc.nextLine());
                     break;
 
                 case 4:
@@ -178,7 +178,7 @@ public class Main {
                             case 1:
                             	 System.out.print("Nhap ten nhan su: ");
                                  String searchName = sc.nextLine();                                 
-                                 Person personByName = dsnd.searchbyname(searchName);
+                                 Person personByName = dsns.searchbyname(searchName);
                                  if (personByName != null) {
                                      System.out.println("Tim thay nhan su voi ID: " + searchName);
                                 	 personByName.xuat();
@@ -190,7 +190,7 @@ public class Main {
                             case 2:
                                 System.out.print("Nhap ID nhan su: ");
                                 String searchId = sc.nextLine();
-                                Person personById = dsnd.searchbyid(searchId);
+                                Person personById = dsns.searchbyid(searchId);
                                 if (personById != null) {
                                     personById.xuat();
                                 } else {
@@ -209,7 +209,7 @@ public class Main {
                 case 5: PHUONG THUC MUON
                 	System.out.print("Nhap ID nguoi muon: ");
                     String IDmuon = sc.nextLine();
-                    Person reader = dsnd.searchbyid(IDmuon);
+                    Person reader = dsns.searchbyid(IDmuon);
                     if (reader != null) {
                         System.out.print("Nhap ID cua tai lieu can muon: ");
                         String IDtailieumuon = sc.nextLine();
@@ -229,13 +229,13 @@ public class Main {
                     }
                     break;*/
                 case 6:
-                    dsnd.xuatDanhSachNhanSu();
+                    dsns.xuatDanhSachNhanSu();
                     break;
                 /*
                 case 7: PHUONG THUC IN RA DANH SACH TAI LIEU CUA NGUOI MUON
                     System.out.print("Nhap ID nguoi muon: ");
                     String ID = sc.nextLine();
-                    Person personToCheck = dsnd.searchbyid(ID);
+                    Person personToCheck = dsns.searchbyid(ID);
 
                     if (personToCheck != null) {
                         Person readerToCheck = personToCheck;
@@ -246,7 +246,7 @@ public class Main {
                     break;*/
                     
                 case 8:
-    				dsnd.ghiVaoFile("output_NS.txt"); // thay output_nhanvien.txt và output_docgia.txt bằng đường dẫn dến file để ghi thông tin nhân viên và đọc giả
+    				dsns.ghiVaoFile("output_NS.txt"); // thay output_nhanvien.txt và output_docgia.txt bằng đường dẫn dến file để ghi thông tin nhân viên và đọc giả
                     break;
                 case 9:
                     break;
