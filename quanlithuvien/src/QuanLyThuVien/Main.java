@@ -279,7 +279,7 @@ public class Main {
 
             switch (subChoice) {
                 case 1:
-                    System.out.println("Nhap loai tai lieu (1. Sach, 2. Tap chi, 3. Dia, 4. Lua chon khac): ");
+                    System.out.println("Nhap loai tai lieu (1. Sach, 2. Tap chi, 3. Dia, 4. Quay lai): ");
                     int typeChoice = sc.nextInt();
                     sc.nextLine(); 
                     System.out.println("---------------------------------------------------------------------");
@@ -297,9 +297,7 @@ public class Main {
                         dia.nhap();
                         dstl.them(dia);
                     } else {
-                        Document doc = new Document();
-                        doc.nhap();
-                        dstl.them(doc);
+                        break;
                     }
                     break;
 
