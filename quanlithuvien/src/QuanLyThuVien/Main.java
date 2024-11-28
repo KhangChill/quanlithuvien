@@ -258,7 +258,6 @@ public class Main {
 
 
     private static void quanLyTaiLieu() {
-        danhSachTaiLieu dstl = new danhSachTaiLieu();
         Scanner sc = new Scanner(System.in);
         int subChoice;
 
