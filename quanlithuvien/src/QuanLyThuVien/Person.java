@@ -120,7 +120,7 @@ public abstract class Person implements NhapXuat {
     }
 
     public ArrayList<Document> getDanhSachTaiLieuMuon() {
-        return danhSachTaiLieuMuon;
+        return this.danhSachTaiLieuMuon;
     }
 	
 }
