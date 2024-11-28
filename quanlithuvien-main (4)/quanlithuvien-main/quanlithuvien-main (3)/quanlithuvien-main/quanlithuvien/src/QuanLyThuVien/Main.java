@@ -1,10 +1,14 @@
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private static danhSachNhanSu dsns = new danhSachNhanSu();
     private static danhSachTaiLieu dstl = new danhSachTaiLieu(); 
-    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
@@ -31,7 +35,7 @@ public class Main {
                     break;
 
                 case 3:
-                    
+                	quanLyHoaDon();
                     break;
 
                 case 4:
@@ -206,8 +210,8 @@ public class Main {
                         System.out.println("Da xay ra loi khi tim kiem: " + e.getMessage());
                     }
                     break;
-                /*
-                case 5: PHUONG THUC MUON
+                
+                case 5:
                 	System.out.print("Nhap ID nguoi muon: ");
                     String IDmuon = sc.nextLine();
                     Person reader = dsns.searchbyid(IDmuon);
@@ -219,21 +223,19 @@ public class Main {
                         		if (doc != null && doc.getSoluong() > 0) {
                                     reader.muonTaiLieu(doc);
                                     doc.setSoluong(doc.getSoluong() - 1);
-                                    System.out.println("Da muon tai lieu thanh cong!");
+                                    System.out.println("Da muon tai lieu " + doc.getName() + " thanh cong!");
                                 } else {
                                     System.out.println("Tai lieu khong ton tai hoac da het.");
                                 }
                             }
                         }
-                    } else {
-                        System.out.println("Khong tim thay nguoi muon voi ID da nhap.");
-                    }
-                    break;*/
+                    } 
+                    break;
                 case 6:
                     dsns.xuatDanhSachNhanSu();
                     break;
-                /*
-                case 7: PHUONG THUC IN RA DANH SACH TAI LIEU CUA NGUOI MUON
+                
+                case 7: 
                     System.out.print("Nhap ID nguoi muon: ");
                     String ID = sc.nextLine();
                     Person personToCheck = dsns.searchbyid(ID);
@@ -244,10 +246,10 @@ public class Main {
                     } else {
                         System.out.println("Khong tim thay nguoi voi ID da nhap.");
                     }
-                    break;*/
+                    break;
                     
                 case 8:
-    				dsns.ghiVaoFile("output_NS.txt"); // thay output_nhanvien.txt và output_docgia.txt bằng đường dẫn dến file để ghi thông tin nhân viên và đọc giả
+    				dsns.ghiVaoFile("output_NS.txt"); 
                     break;
                 case 9:
                     break;
@@ -259,7 +261,6 @@ public class Main {
 
 
     private static void quanLyTaiLieu() {
-        danhSachTaiLieu dstl = new danhSachTaiLieu();
         Scanner sc = new Scanner(System.in);
         int subChoice;
 
@@ -403,5 +404,161 @@ public class Main {
             }
         } while (subChoice != 8);
     }
-    
+
+private static void quanLyHoaDon() {
+	Scanner scanner = new Scanner(System.in);
+    List<String> hoaDonList = new ArrayList<>();
+
+    // Đọc các hóa đơn cũ từ file vào danh sách
+    hoaDonList = QuanLyHoaDon.loadHoaDonFromFile("output_HD.txt");
+
+    // Xác định số hóa đơn tiếp theo
+    int maHoaDonCounter = hoaDonList.size() > 0 ? Integer.parseInt(hoaDonList.get(hoaDonList.size() - 1).split("\"maHoaDon\": \"")[1].split("\"")[0]) + 1 : 1;
+
+    while (true) {
+        System.out.println("\nChon chuc nang:");
+        System.out.println("1. Tao hoa don");
+        System.out.println("2. Xoa tat ca hoa don");
+        System.out.println("3. Hien thi tat ca hoa don");
+        System.out.println("4. Tim hoa don theo ma hoa don");
+        System.out.println("5. Thoat");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();  // Đọc ký tự Enter còn sót lại
+
+        if (choice == 1) {
+            // Nhập dữ liệu cho các hóa đơn mới
+            boolean tiepTucNhapHoaDon = true;
+            while (tiepTucNhapHoaDon) {
+                System.out.println("\nNhap thong tin hoa don:");
+
+                // Định dạng mã hóa đơn từ 001 đến 999
+                String maHoaDon = String.format("%03d", maHoaDonCounter);
+                System.out.println("Ma hoa don: " + maHoaDon);  // Hiển thị mã hóa đơn tự động
+
+                // Kiểm tra mã độc giả và tên độc giả
+                String tenDocGia = "";
+                String maDocGia = "";
+                boolean isValidDocGia = false;
+
+                while (!isValidDocGia) {
+                    System.out.print("Ten doc gia: ");
+                    tenDocGia = scanner.nextLine();
+
+                    System.out.print("Ma doc gia: ");
+                    maDocGia = scanner.nextLine();
+
+                    // Kiểm tra mã độc giả và tên độc giả từ file output_NS.txt
+                    if (!QuanLyHoaDon.checkDocGiaExists(maDocGia, tenDocGia)) {
+                        System.out.println("Ten doc gia hoac ma doc gia khong khop. Vui long nhap lai!");
+                    } else {
+                        isValidDocGia = true;
+                    }
+                }
+
+                // Kiểm tra mã tài liệu
+                String maTaiLieu = "";
+                boolean isValidTaiLieu = false;
+
+                while (!isValidTaiLieu) {
+                    System.out.print("Ma tai lieu: ");
+                    maTaiLieu = scanner.nextLine();
+
+                    // Kiểm tra mã tài liệu từ file output_TL.txt
+                    if (!QuanLyHoaDon.checkMaTaiLieuExists(maTaiLieu)) {
+                        System.out.println("Sai ma tai lieu! Vui long nhap lai ma tai lieu: ");
+                    } else {
+                        isValidTaiLieu = true;
+                    }
+                }
+
+                System.out.print("Tien coc: ");
+                double tienCoc = scanner.nextDouble();
+                scanner.nextLine();  // Đọc ký tự Enter còn sót lại
+
+                // Lấy ngày mượn hiện tại
+                String ngayMuon = QuanLyHoaDon.getCurrentDate();
+
+                // Nhập ngày trả và kiểm tra tính hợp lệ
+                String ngayTra = "";
+                boolean validNgayTra = false;
+                while (!validNgayTra) {
+                    System.out.print("Ngay tra (dd/MM/yyyy): ");
+                    ngayTra = scanner.nextLine();
+
+                    if (!QuanLyHoaDon.isValidDate(ngayMuon) || !QuanLyHoaDon.isValidDate(ngayTra)) {
+                        System.out.println("Ngay khong hop le. Vui long nhap lai: ");
+                    } else {
+                        // So sánh ngày mượn và ngày trả
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        try {
+                            Date dateNgayMuon = sdf.parse(ngayMuon);
+                            Date dateNgayTra = sdf.parse(ngayTra);
+                            if (dateNgayTra.before(dateNgayMuon)) {
+                                System.out.println("Ngay tra khong the nho hon ngay muon. Vui long nhap lai: ");
+                            } else {
+                                validNgayTra = true;  // Ngày trả hợp lệ
+                            }
+                        } catch (ParseException e) {
+                            System.out.println("Ngay khong hop le. Vui long nhap lai: ");
+                        }
+                    }
+                }
+
+                // Tạo chuỗi hóa đơn và thêm vào danh sách
+                String hoaDon = String.format("{\"maHoaDon\": \"%s\", \"tenDocGia\": \"%s\", \"maDocGia\": \"%s\", \"maTaiLieu\": \"%s\", \"tienCoc\": %.2f, \"ngayMuon\": \"%s\", \"ngayTra\": \"%s\"}",
+                                              maHoaDon, tenDocGia, maDocGia, maTaiLieu, tienCoc, ngayMuon, ngayTra);
+                hoaDonList.add(hoaDon);
+
+                // Tăng số thứ tự mã hóa đơn
+                maHoaDonCounter++;
+
+                // Hỏi người dùng có muốn tiếp tục nhập hóa đơn mới hay không
+                System.out.print("Ban co muon nhap them hoa don khong? (y/n): ");
+                String tiepTuc = scanner.nextLine();
+                if (tiepTuc.toLowerCase().equals("n")) {
+                    tiepTucNhapHoaDon = false;  // Nếu chọn 'n', thoát khỏi vòng lặp nhập hóa đơn
+                }
+
+                // Nếu số thứ tự đạt đến 999, quay lại 001
+                if (maHoaDonCounter > 999) {
+                    maHoaDonCounter = 1;
+                }
+            }
+
+        } else if (choice == 2) {
+            // Chức năng xóa tất cả hóa đơn
+            System.out.print("Ban co chac muon xoa tat ca hoa don khong? (y/n): ");
+            String xacNhan = scanner.nextLine();
+
+            if (xacNhan.toLowerCase().equals("y")) {
+                hoaDonList.clear(); // Xóa tất cả hóa đơn trong danh sách
+                maHoaDonCounter = 1; // Đánh lại mã hóa đơn từ 001
+                System.out.println("Tat ca hoa don da duoc xoa!");
+            }
+
+        } else if (choice == 3) {
+            // Xuất tất cả hóa đơn
+        	QuanLyHoaDon.displayHoaDon(hoaDonList);
+
+        } else if (choice == 4) {
+            // Xuất hóa đơn theo mã
+            System.out.print("Nhap ma hoa don muon xuat: ");
+            String maHoaDon = scanner.nextLine();
+            QuanLyHoaDon.displayHoaDonByMa(hoaDonList, maHoaDon);
+
+        } else if (choice == 5) {
+            break;  // Thoát khỏi chương trình
+        } else {
+            System.out.println("Lua chon khong hop le");
+        }
+
+        // Lưu tất cả hóa đơn vào file sau khi có thay đổi
+        QuanLyHoaDon.saveHoaDonToFile(hoaDonList, "output_HD.txt");
+    }
+
+    System.out.println("Tat ca hoa don da duoc luu vao file output_HD.txt !");
+
+}
+	
 }
