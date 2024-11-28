@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class danhSachNhanSu {
-	public ArrayList<Person> listofperson;
+	private ArrayList<Person> listofperson;
 	
 	// constructor
 	public danhSachNhanSu() {
