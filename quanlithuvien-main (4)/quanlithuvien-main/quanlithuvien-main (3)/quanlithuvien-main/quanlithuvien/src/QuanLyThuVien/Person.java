@@ -112,8 +112,11 @@ public class Person implements NhapXuat {
         } else {
             System.out.println("Danh sach tai lieu da muon:");
             for (Document doc : danhSachTaiLieuMuon) {
-                doc.xuat();
-                System.out.println();
+                System.out.print("ID: " + doc.getId()+"  ");
+                System.out.print("Ten tai lieu: " + doc.getName()+"  ");
+                System.out.print("The loai tai lieu: " + doc.getType()+"  ");
+                System.out.print("Nam xuat ban: " + doc.getNamxuatban()+"  ");
+                System.out.println("Tac gia: " + doc.getTacgia()+"  ");
             }
         }
     }
