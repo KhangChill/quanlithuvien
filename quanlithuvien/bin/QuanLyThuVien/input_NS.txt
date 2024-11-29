@@ -1,4 +1,0 @@
-Employee; ID: NG001; Ten: Nguyen Van A; Dia chi: 123 Nguyen Trai; Gioi tinh: Nam; Ngay sinh: 15/04/1985; Vi tri: Giam doc; Ca lam: Ca sang
-Reader; ID: NG002; Ten: Tran Thi B; Dia chi: 456 Le Loi; Gioi tinh: Nu; Ngay sinh: 22/08/1990; Email: tranthib@example.com; So dien thoai: 0901234567
-Employee; ID: NG003; Ten: Le Van C; Dia chi: 789 Tran Hung Dao; Gioi tinh: Nam; Ngay sinh: 10/10/1988; Vi tri: Ke toan; Ca lam: Ca chieu
-Reader; ID: NG004; Ten: Hoang Minh D; Dia chi: 101 Nguyen Hue; Gioi tinh: Nam; Ngay sinh: 05/06/1995; Email: hoangminhd@example.com; So dien thoai: 0912345678
